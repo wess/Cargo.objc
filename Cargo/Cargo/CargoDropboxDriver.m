@@ -34,6 +34,9 @@
 
 + (instancetype)instance
 {
+    if(!CargoDropboxAppSecret || !CargoDropboxAppKey)
+        @throw [NSException exceptionWithName:@"Cargo Dropbox Error" reason:@"App Key and App Secret are not defined, please see CargoDropboxDriver.h" userInfo:nil];
+    
     static id _instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

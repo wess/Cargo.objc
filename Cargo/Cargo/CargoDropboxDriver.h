@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "CargoStorageDriverProtocol.h"
 
-static NSString *const CargoDropboxAppKey       = @"57eqszf44bnby00";
-static NSString *const CargoDropboxAppSecret    = @"aof6grzeomphfez";
+static NSString *const CargoDropboxAppKey       = nil;
+static NSString *const CargoDropboxAppSecret    = nil;
 
 @class CargoObject;
 @interface CargoDropboxDriver : NSObject<CargoStorageDriverProtocol>
