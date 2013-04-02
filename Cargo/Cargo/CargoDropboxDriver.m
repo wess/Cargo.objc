@@ -60,59 +60,56 @@
     [self.file removeObserver:self];
 }
 
++ (void)setupDropboxLink
+{
+    CargoDropboxDriver *driver = [CargoDropboxDriver instance];
+    driver.accountManager = [[DBAccountManager alloc] initWithAppKey:CargoDropboxAppKey secret:CargoDropboxAppSecret];
+    driver.account = driver.accountManager.linkedAccount;
+    
+    [DBAccountManager setSharedManager:driver.accountManager];
+    
+    if(driver.account)
+    {
+        driver.filesystem = [[DBFilesystem alloc] initWithAccount:driver.account];
+        [DBFilesystem setSharedFilesystem:driver.filesystem];
+    }
+    else
+    {
+        UIViewController *controller = (UIViewController *)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
+        [driver.accountManager linkFromController:controller];
+    }
+}
+
+- (void)handleDropboxOpenURL:(NSURL *)url
+{
+    _account = [self.accountManager handleOpenURL:url];
+    if(_account)
+    {
+        _filesystem = [[DBFilesystem alloc] initWithAccount:_account];
+        [DBFilesystem setSharedFilesystem:_filesystem];
+    }
+}
+
 - (void)writeDocument:(NSDictionary *)document
 {
+    if(!document)
+        return;
+    
     NSString *error = nil;
     NSData  *plist = [NSPropertyListSerialization dataFromPropertyList:(id)document format:NSPropertyListXMLFormat_v1_0 errorDescription:&error];
     
     NSAssert(error == nil, error);
-    
-    DBError *dbError = nil;
-    [self.file writeData:plist error:&dbError];
-    
-    NSAssert(dbError == nil, dbError.debugDescription);
+
+    if(plist)
+    {
+        DBError *dbError = nil;
+        [self.file writeData:plist error:&dbError];
+        
+        NSAssert(dbError == nil, dbError.debugDescription);
+    }
 }
 
 #pragma mark - properties -
-- (DBAccountManager *)accountManager
-{
-    if(_accountManager)
-        return _accountManager;
-    
-    _accountManager = [[DBAccountManager alloc] initWithAppKey:CargoDropboxAppKey secret:CargoDropboxAppSecret];
-    
-    return _accountManager;
-}
-
-- (DBAccount *)account
-{
-    if(_account && _account.linked)
-        return _account;
-    
-    if(_linkAccountURL)
-    {
-        _account = [self.accountManager handleOpenURL:_linkAccountURL];
-        return _account;
-    }
-    else
-    {
-        UIViewController *appRootController = (UIViewController *)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
-        [self.accountManager linkFromController:appRootController];
-    }
-    
-    return nil;
-}
-
-- (DBFilesystem *)filesystem
-{
-    if(_filesystem)
-        return _filesystem;
-    
-    _filesystem = [[DBFilesystem alloc] initWithAccount:self.account];
-    
-    return _filesystem;
-}
-
 - (DBPath *)path
 {
     if(_path)
@@ -128,10 +125,14 @@
     if(_file)
         return _file;
     
-    NSError *error = nil;
-    _file = [self.filesystem createFile:self.path error:&error];
-    
-    NSAssert(error == nil, error.debugDescription);
+    _file = [self.filesystem openFile:self.path error:nil];
+    if(!_file)
+    {
+        NSError *error = nil;
+        _file = [self.filesystem createFile:self.path error:&error];
+        
+        NSAssert(error == nil, error.debugDescription);
+    }
     
     __weak typeof(self) weakSelf = self;
     [_file addObserver:self block:^{
@@ -157,26 +158,28 @@
     
     NSAssert(error == nil, error.debugDescription);
     
-    NSError *plistError = nil;
-    NSPropertyListFormat format;
-    NSDictionary *plist = [NSPropertyListSerialization propertyListWithData:fileData options:NSPropertyListImmutable format:&format error:&plistError];
+    if(!fileData)
+    {
+        _document = @{};
+    }
+    else
+    {
+        NSError *plistError = nil;
+        NSPropertyListFormat format;
+        NSDictionary *plist = [NSPropertyListSerialization propertyListWithData:fileData options:NSPropertyListImmutable format:&format error:&plistError];
+        
+        NSAssert(plistError == nil, plistError.debugDescription);
+        
+        _document = plist;
+    }
     
-    NSAssert(plistError == nil, plistError.debugDescription);
-    
-    _document = plist;
-    
-    return plist;
+    return _document;
 }
 
 #pragma mark - public methods -
-- (void)handleDropboxOpenURL:(NSURL *)url
-{
-    _linkAccountURL = url;
-}
-
 - (void)saveDocument:(NSDictionary *)document forEntityName:(NSString *)entityName
 {
-    NSMutableDictionary *doc = [_document mutableCopy];
+    NSMutableDictionary *doc = [self.document mutableCopy];
     doc[entityName] = [document copy];
  
     [self writeDocument:doc];

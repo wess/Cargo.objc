@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0833C814170B1619007274EB /* CargoDropboxDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = 0833C812170B1619007274EB /* CargoDropboxDriver.h */; };
 		0833C815170B1619007274EB /* CargoDropboxDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 0833C813170B1619007274EB /* CargoDropboxDriver.m */; };
+		0833C816170B2EB2007274EB /* CargoDropboxDriver.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0833C812170B1619007274EB /* CargoDropboxDriver.h */; };
+		0833C817170B2EB2007274EB /* CargoiCloudDriver.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 085C20281704A4510037FE41 /* CargoiCloudDriver.h */; };
 		085C1FE617048AE10037FE41 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085C1FE517048AE10037FE41 /* Foundation.framework */; };
 		085C1FEB17048AE10037FE41 /* Cargo.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 085C1FEA17048AE10037FE41 /* Cargo.h */; };
 		085C201D17048F760037FE41 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085C201C17048F760037FE41 /* Dropbox.framework */; };
@@ -29,6 +31,8 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				0833C816170B2EB2007274EB /* CargoDropboxDriver.h in CopyFiles */,
+				0833C817170B2EB2007274EB /* CargoiCloudDriver.h in CopyFiles */,
 				085C20371704A8AE0037FE41 /* CargoStorageDriverProtocol.h in CopyFiles */,
 				085C20381704A8AE0037FE41 /* CargoObject.h in CopyFiles */,
 				085C1FEB17048AE10037FE41 /* Cargo.h in CopyFiles */,

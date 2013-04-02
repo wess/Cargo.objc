@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0833C81D170B323A007274EB /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0833C81C170B323A007274EB /* Dropbox.framework */; };
+		0833C82A170B326B007274EB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0833C826170B326B007274EB /* CFNetwork.framework */; };
+		0833C82B170B326B007274EB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0833C827170B326B007274EB /* QuartzCore.framework */; };
+		0833C82C170B326B007274EB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0833C828170B326B007274EB /* Security.framework */; };
+		0833C82D170B326B007274EB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0833C829170B326B007274EB /* SystemConfiguration.framework */; };
 		085C200017048B020037FE41 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085C1FFF17048B020037FE41 /* UIKit.framework */; };
 		085C200217048B020037FE41 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085C200117048B020037FE41 /* Foundation.framework */; };
 		085C200417048B020037FE41 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085C200317048B020037FE41 /* CoreGraphics.framework */; };
@@ -18,9 +23,15 @@
 		085C201617048B020037FE41 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 085C201517048B020037FE41 /* Default-568h@2x.png */; };
 		085C202F1704A6A40037FE41 /* CETestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 085C202E1704A6A40037FE41 /* CETestModel.m */; };
 		085C20311704A6F20037FE41 /* libCargo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 085C20301704A6F20037FE41 /* libCargo.a */; };
+		086BE771170B3CDF00FCF561 /* CEUserDefaultsDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 086BE770170B3CDF00FCF561 /* CEUserDefaultsDriver.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0833C81C170B323A007274EB /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dropbox.framework; path = ../Cargo/Dropbox.framework; sourceTree = "<group>"; };
+		0833C826170B326B007274EB /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		0833C827170B326B007274EB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0833C828170B326B007274EB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		0833C829170B326B007274EB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		085C1FFC17048B020037FE41 /* CargoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CargoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		085C1FFF17048B020037FE41 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		085C200117048B020037FE41 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -38,6 +49,8 @@
 		085C202D1704A6A40037FE41 /* CETestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETestModel.h; sourceTree = "<group>"; };
 		085C202E1704A6A40037FE41 /* CETestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CETestModel.m; sourceTree = "<group>"; };
 		085C20301704A6F20037FE41 /* libCargo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCargo.a; path = "../Cargo/build/Release-iphoneos/libCargo.a"; sourceTree = "<group>"; };
+		086BE76F170B3CDF00FCF561 /* CEUserDefaultsDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEUserDefaultsDriver.h; sourceTree = "<group>"; };
+		086BE770170B3CDF00FCF561 /* CEUserDefaultsDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEUserDefaultsDriver.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,10 +58,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0833C82A170B326B007274EB /* CFNetwork.framework in Frameworks */,
+				0833C82B170B326B007274EB /* QuartzCore.framework in Frameworks */,
+				0833C82C170B326B007274EB /* Security.framework in Frameworks */,
+				0833C82D170B326B007274EB /* SystemConfiguration.framework in Frameworks */,
 				085C20311704A6F20037FE41 /* libCargo.a in Frameworks */,
 				085C200017048B020037FE41 /* UIKit.framework in Frameworks */,
 				085C200217048B020037FE41 /* Foundation.framework in Frameworks */,
 				085C200417048B020037FE41 /* CoreGraphics.framework in Frameworks */,
+				0833C81D170B323A007274EB /* Dropbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +93,11 @@
 		085C1FFE17048B020037FE41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0833C826170B326B007274EB /* CFNetwork.framework */,
+				0833C827170B326B007274EB /* QuartzCore.framework */,
+				0833C828170B326B007274EB /* Security.framework */,
+				0833C829170B326B007274EB /* SystemConfiguration.framework */,
+				0833C81C170B323A007274EB /* Dropbox.framework */,
 				085C20301704A6F20037FE41 /* libCargo.a */,
 				085C1FFF17048B020037FE41 /* UIKit.framework */,
 				085C200117048B020037FE41 /* Foundation.framework */,
@@ -86,6 +109,7 @@
 		085C200517048B020037FE41 /* CargoExample */ = {
 			isa = PBXGroup;
 			children = (
+				086BE76E170B3CD100FCF561 /* Driver */,
 				085C202C1704A6960037FE41 /* Models */,
 				085C200E17048B020037FE41 /* CEAppDelegate.h */,
 				085C200F17048B020037FE41 /* CEAppDelegate.m */,
@@ -116,6 +140,15 @@
 				085C202E1704A6A40037FE41 /* CETestModel.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		086BE76E170B3CD100FCF561 /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				086BE76F170B3CDF00FCF561 /* CEUserDefaultsDriver.h */,
+				086BE770170B3CDF00FCF561 /* CEUserDefaultsDriver.m */,
+			);
+			name = Driver;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +220,7 @@
 				085C200C17048B020037FE41 /* main.m in Sources */,
 				085C201017048B020037FE41 /* CEAppDelegate.m in Sources */,
 				085C202F1704A6A40037FE41 /* CETestModel.m in Sources */,
+				086BE771170B3CDF00FCF561 /* CEUserDefaultsDriver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +298,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = CargoExample/CargoExample.entitlements;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Cargo\"",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CargoExample/CargoExample-Prefix.pch";
 				INFOPLIST_FILE = "CargoExample/CargoExample-Info.plist";
@@ -276,6 +315,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = CargoExample/CargoExample.entitlements;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Cargo\"",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CargoExample/CargoExample-Prefix.pch";
 				INFOPLIST_FILE = "CargoExample/CargoExample-Info.plist";

@@ -13,7 +13,7 @@
 
 @interface CargoObject()
 @property (strong, nonatomic) NSMutableDictionary   *document;
-@property (strong, nonatomic) id              storage;
+@property (strong, nonatomic) id                    storage;
 @property (strong, nonatomic) NSString              *entityName;
 
 - (void)saveObject:(id)object forKey:(NSString *)property;
@@ -26,10 +26,11 @@ static NSString *const CargoSelectorSuffix = @":";
 
 - (void)initializeWithEntityName:(NSString *)entityName;
 {
-    NSAssert([[[CargoObject class] CargoStorageDriverClass] conformsToProtocol:@protocol(CargoStorageDriverProtocol)], @"Cargo storage drivers must conform to CargoStorageDriverProtocol");
+    Class storageClass = [[self class] CargoStorageDriverClass];
+    NSAssert([storageClass conformsToProtocol:@protocol(CargoStorageDriverProtocol)], @"Cargo storage drivers must conform to CargoStorageDriverProtocol");
 
     self.document   = [[NSMutableDictionary alloc] init];
-    self.storage    = [[[self class] CargoStorageDriverClass] instance];
+    self.storage    = [storageClass instance];
     self.entityName = [entityName copy];
 }
 
@@ -79,7 +80,7 @@ static NSString *const CargoSelectorSuffix = @":";
 
 + (Class)CargoStorageDriverClass
 {
-    return [CargoiCloudDriver class];
+    @throw [NSException exceptionWithName:@"Cargo Object Error" reason:@"+(Class)CargoStorageDriverClass must return class for storage driver" userInfo:nil];
 }
 
 #pragma mark - Private Parts -

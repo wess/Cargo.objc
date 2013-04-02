@@ -7,8 +7,15 @@
 //
 
 #import "CETestModel.h"
+#import "CEUserDefaultsDriver.h"
 
 @implementation CETestModel
 @dynamic firstname;
 @dynamic lastname;
+
++ (Class)CargoStorageDriverClass
+{
+    return [CEUserDefaultsDriver class];
+}
+
 @end

@@ -8,6 +8,7 @@
 
 #import "CEAppDelegate.h"
 #import "CETestModel.h"
+#import <Cargo/CargoDropboxDriver.h>
 
 @implementation CEAppDelegate
 
@@ -15,16 +16,32 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
+    UIViewController *rootViewController = [[UIViewController alloc] initWithNibName:nil bundle:nil];
+    rootViewController.view.backgroundColor = [UIColor redColor];
+    
+    self.window.rootViewController = rootViewController;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+
+    [CargoDropboxDriver setupDropboxLink];
+    
     CETestModel *testModel  = [[CETestModel alloc] init];
     testModel.firstname     = @"wess";
     testModel.lastname      = @"cope";
     
     [testModel save];
-
-    NSLog(@"ALL THE THINGS: %@", [testModel fetch]);
     
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    NSLog(@"ALL THE THINGS: %@", [testModel fetch]);
+
+    
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    NSLog(@"URL :%@", url.absoluteString);
+    [[CargoDropboxDriver instance] handleDropboxOpenURL:url];
     return YES;
 }
 
