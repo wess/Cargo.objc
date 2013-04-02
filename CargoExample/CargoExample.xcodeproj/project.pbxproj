@@ -37,7 +37,7 @@
 		085C20261704A3390037FE41 /* CargoExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CargoExample.entitlements; sourceTree = "<group>"; };
 		085C202D1704A6A40037FE41 /* CETestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETestModel.h; sourceTree = "<group>"; };
 		085C202E1704A6A40037FE41 /* CETestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CETestModel.m; sourceTree = "<group>"; };
-		085C20301704A6F20037FE41 /* libCargo.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libCargo.a; path = "../Cargo/build/Release-iphoneos/libCargo.a"; sourceTree = "<group>"; };
+		085C20301704A6F20037FE41 /* libCargo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCargo.a; path = "../Cargo/build/Release-iphoneos/libCargo.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +303,7 @@
 				085C201B17048B020037FE41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

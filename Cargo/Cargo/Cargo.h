@@ -10,7 +10,7 @@
 #define __CARGO_H__
 
 // Notifications.
-static NSString *const CargoDidUpdateEntityFromCloudNotification    = @"CargoDidUpdateEntityFromCloudNotification";
-static NSString *const CargoDidSaveEntityToCloudNotification        = @"CargoDidSaveEntityToCloudNotification";
+static NSString *const CargoDidUpdateEntityNotification = @"CargoDidUpdateEntityNotification";
+static NSString *const CargoDidSaveEntityNotification   = @"CargoDidSaveEntityNotification";
 
 #endif

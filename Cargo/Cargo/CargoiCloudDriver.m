@@ -63,7 +63,7 @@
         weakSelf.documents[backupEntityName] = [weakSelf.documents[entityName] mutableCopy];
         weakSelf.documents[entityName]       = [doc mutableCopy];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:CargoDidUpdateEntityFromCloudNotification object:entityName];
+        [[NSNotificationCenter defaultCenter] postNotificationName:CargoDidUpdateEntityNotification object:entityName];
         
     }];
 }
@@ -92,7 +92,7 @@
     [[NSUbiquitousKeyValueStore defaultStore] setObject:document forKey:entityName];
     [[NSUbiquitousKeyValueStore defaultStore] synchronize];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CargoDidSaveEntityToCloudNotification object:entityName];
+    [[NSNotificationCenter defaultCenter] postNotificationName:CargoDidSaveEntityNotification object:entityName];
 }
 
 - (void)deleteEntityName:(NSString *)entityName

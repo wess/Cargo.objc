@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0833C814170B1619007274EB /* CargoDropboxDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = 0833C812170B1619007274EB /* CargoDropboxDriver.h */; };
+		0833C815170B1619007274EB /* CargoDropboxDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 0833C813170B1619007274EB /* CargoDropboxDriver.m */; };
 		085C1FE617048AE10037FE41 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085C1FE517048AE10037FE41 /* Foundation.framework */; };
 		085C1FEB17048AE10037FE41 /* Cargo.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 085C1FEA17048AE10037FE41 /* Cargo.h */; };
 		085C201D17048F760037FE41 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085C201C17048F760037FE41 /* Dropbox.framework */; };
@@ -36,6 +38,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0833C812170B1619007274EB /* CargoDropboxDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CargoDropboxDriver.h; sourceTree = "<group>"; };
+		0833C813170B1619007274EB /* CargoDropboxDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CargoDropboxDriver.m; sourceTree = "<group>"; };
 		085C1FE217048AE10037FE41 /* libCargo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCargo.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		085C1FE517048AE10037FE41 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		085C1FE917048AE10037FE41 /* Cargo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cargo-Prefix.pch"; sourceTree = "<group>"; };
@@ -61,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0833C811170B1605007274EB /* Dropbox */ = {
+			isa = PBXGroup;
+			children = (
+				0833C812170B1619007274EB /* CargoDropboxDriver.h */,
+				0833C813170B1619007274EB /* CargoDropboxDriver.m */,
+			);
+			name = Dropbox;
+			sourceTree = "<group>";
+		};
 		085C1FD917048AE10037FE41 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +131,7 @@
 		085C20221704920A0037FE41 /* Storage Drivers */ = {
 			isa = PBXGroup;
 			children = (
+				0833C811170B1605007274EB /* Dropbox */,
 				085C20271704A3E10037FE41 /* iCloud */,
 				085C202B1704A46F0037FE41 /* CargoStorageDriverProtocol.h */,
 			);
@@ -144,6 +158,7 @@
 				085C20341704A73F0037FE41 /* CargoStorageDriverProtocol.h in Headers */,
 				085C20351704A73F0037FE41 /* CargoObject.h in Headers */,
 				085C20361704A73F0037FE41 /* Cargo.h in Headers */,
+				0833C814170B1619007274EB /* CargoDropboxDriver.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +216,7 @@
 			files = (
 				085C20211704909C0037FE41 /* CargoObject.m in Sources */,
 				085C202A1704A4510037FE41 /* CargoiCloudDriver.m in Sources */,
+				0833C815170B1619007274EB /* CargoDropboxDriver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +327,7 @@
 				085C1FF217048AE10037FE41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

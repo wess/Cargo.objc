@@ -12,6 +12,10 @@
 @required
 + (instancetype)instance;
 - (void)saveDocument:(NSDictionary *)document forEntityName:(NSString *)entityName;
-- (BOOL)revertToLastSaveForEntityName:(NSString *)entityName;
 - (void)deleteEntityName:(NSString *)entityName;
+
+@optional
+- (BOOL)revertToLastSaveForEntityName:(NSString *)entityName;
+- (id)getBackupDocumentForEntityName:(NSString *)entityName;
+
 @end
