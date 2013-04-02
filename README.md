@@ -100,7 +100,10 @@ Cargo has an NSObject subclass called CargoObject that is subclassed with dynami
 ```
 
 ## Notes
-Cargo is still in it’s early stages, but is working well. All suggestions are welcome.
+Cargo is still in it’s early stages, but should be stable ;). Also fetch will always return all results and delete will remove them.
+
+## TODO
+- Auto indexing items with generated primary keys for fetching and deleting specific "rows"
 
 ## Developer info
 * [Github](http://www.github.com/wess)
