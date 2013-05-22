@@ -19,6 +19,14 @@
 
 
 @required
+
+/**
+ Dictionary used to store and read data to/from.
+ 
+ @return Dictionary used for data.
+ */
+- (NSDictionary *)document;
+
 /**
  All storage drivers must be singletons, and the instance method is how to access the shared instance of the driver.
  

@@ -48,6 +48,11 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (NSDictionary *)document
+{
+    return self.documents;
+}
+
 - (NSString *)backupNameForEntityName:(NSString *)entityName
 {
     return [NSString stringWithFormat:@"%@.backup", entityName];

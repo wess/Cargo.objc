@@ -25,12 +25,15 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
     [defaults setObject:document forKey:entityName];
+    [defaults synchronize];
 }
 
 - (void)deleteEntityName:(NSString *)entityName
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
     [defaults removeObjectForKey:entityName];
+    [defaults synchronize];
 }
 
 - (id)getDocumentForEntityName:(NSString *)entityName

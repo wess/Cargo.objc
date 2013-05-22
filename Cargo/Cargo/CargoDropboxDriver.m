@@ -179,10 +179,16 @@
 #pragma mark - public methods -
 - (void)saveDocument:(NSDictionary *)document forEntityName:(NSString *)entityName
 {
-    NSMutableDictionary *doc = [self.document mutableCopy];
-    doc[entityName] = [document copy];
- 
-    [self writeDocument:doc];
+    if(!self.document[entityName])
+    {
+        NSMutableDictionary *mutableDocument = [self.document copy];
+        mutableDocument[entityName] = [[NSMutableArray alloc] init];
+        
+        _document = [mutableDocument copy];
+    }
+    
+
+    [self.document[entityName] addObject:[document copy]];
 }
 
 - (void)deleteEntityName:(NSString *)entityName
