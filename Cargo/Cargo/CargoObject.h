@@ -41,13 +41,30 @@
 - (id)fetch;
 
 /**
- Fetchs the objects stored from a previous document, before the last save was called.
+ Fetches all stored objects for entity and executes handler when complete
+ 
+ @param Block Block called when request has completed.
+ */
+- (void)fetch:(void(^)(id results))handler;
+
+
+/**
+ Fetches the objects stored from a previous document, before the last save was called.
  
  @return Objects stored as a backup from entity state before last save.
  
  @note This selector will not work if the storage driver does not implement the backup selectors.
  */
 - (id)fetchBackup;
+
+/**
+ Fetches the objects stored from a previous document, before the last save was called and executes handler when complete
+ 
+ @param Block Block called when request has completed.
+
+ @note This selector will not work if the storage driver does not implement the backup selectors.
+*/
+- (void)fetchBackup:(void(^)(id results))handler;
 
 /**
  Saves the current property values to a specific entity.

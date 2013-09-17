@@ -57,9 +57,31 @@ static NSString *const CargoSelectorSuffix = @":";
     return [self.storage getDocumentForEntityName:self.entityName];
 }
 
+- (void)fetch:(void(^)(id results))handler
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        id results = [self.storage getDocumentForEntityName:self.entityName];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            handler(results);
+        });
+    });
+}
+
 - (id)fetchBackup
 {
     return [self.storage getBackupDocumentForEntityName:self.entityName];
+}
+
+- (void)fetchBackup:(void(^)(id results))handler
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        id results = [self.storage getBackupDocumentForEntityName:self.entityName];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            handler(results);
+        });
+    });
 }
 
 - (void)save
